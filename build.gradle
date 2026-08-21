@@ -8,7 +8,9 @@ tasks.named('wrapper', Wrapper).configure {
     distributionType = Wrapper.DistributionType.BIN
 }
 
-version = mod_version
+
+
+version = new String("neoforge-") + new String(minecraft_version)  + '-' + new String(mod_version)
 group = mod_group_id
 
 sourceSets.main.resources {
