@@ -8,6 +8,6 @@ import net.neoforged.fml.ModContainer;
 public class FixCreateKeybindCrash {
     public static final String MODID = "fixcreatekeybindcrash";
     public FixCreateKeybindCrash(IEventBus modEventBus, ModContainer modContainer) {
-
+        FixCreateKeybindCrashConfig.registerCommon(modContainer);
     }
 }

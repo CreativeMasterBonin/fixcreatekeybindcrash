@@ -1,3 +1,4 @@
 {
- "title.fixcreatekeybindcrash.name": "Fix Crashing KeyBind Check"
+ "title.fixcreatekeybindcrash.name": "Fix Crashing KeyBind Check",
+ "config.common.fixcreatekeybindcrashconfig.title": "Verbose Error Logging"
 }

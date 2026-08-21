@@ -3,6 +3,7 @@ package net.cmb.fixcreatekeybindcrash.mixin;
 import com.mojang.blaze3d.platform.InputConstants;
 import com.mojang.logging.LogUtils;
 import com.simibubi.create.AllKeys;
+import net.cmb.fixcreatekeybindcrash.FixCreateKeybindCrashConfig;
 import net.minecraft.client.Minecraft;
 import org.lwjgl.glfw.GLFW;
 import org.spongepowered.asm.mixin.Debug;
@@ -17,7 +18,9 @@ public class FixKeyDownCheckMix {
     @Inject(method = "isKeyDown",at = @At("HEAD"), cancellable = true)
     private static void isKeyDownFix(int key, CallbackInfoReturnable<Boolean> cir){
         if(key <= GLFW.GLFW_KEY_UNKNOWN){
-            LogUtils.getLogger().error("FixKeyDownCheckMix - isKeyDownFix: Key was unknown or unassigned, which is unhandled, skipping!");
+            if(FixCreateKeybindCrashConfig.VERBOSE_KEYBIND_ERRORS.getAsBoolean()){
+                LogUtils.getLogger().error("FixKeyDownCheckMix - isKeyDownFix: Key was unknown or unassigned, which is unhandled, skipping!");
+            }
             cir.setReturnValue(false);
         }
         else{
